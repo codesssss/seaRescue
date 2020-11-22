@@ -10,7 +10,7 @@
 * Response<T>直接返回结果和ResponsePageInfo<T>泛型分页代码生成更快速识别swagger
 * ResponseEnum统一状态消息管理，方便排查问题
 * 新增create_db.sql脚本，方便一键生成数据库和用户
-* create_business.用于存放你们自己业务的sql，quartz.sql是定时任务sql，ry_20201021.sql是系统基本功能自带的sql
+* create_business.sql用于存放你们自己业务的sql;quartz.sql是定时任务sql;ry_20201021.sql是系统基本表自带的sql
 * 新增登录方法（不含验证码） /login/noCode ,方便生成token用swagger登录Authorize授权测试
 * 前端采用Vue、Element UI。
 * 后端采用Spring Boot、Spring Security、Redis、Jwt、Swagger2 & Swagger-Bootstrap-UI、 Lombok。
@@ -41,7 +41,7 @@
 
 
 ## 代码生成功能
-###PS:本次以sys_config举例，实际项目中不要去生成系统自带的sys_开头的表，否则启动不了
+### PS:本次以sys_config举例，实际项目中不要去生成系统自带的sys_开头的表，否则启动不了
 1.启动ruoyi-ui 然后进入菜单——>系统工具——>代码生成（前提是数据库已经把业务的表导入进去了）
 
 ![Image text](doc/gen-index.jpg)
@@ -73,7 +73,29 @@
 
 演示地址：http://vue.ruoyi.vip  
 文档地址：http://doc.ruoyi.vip
-
+~~~
+com.ruoyi 
+├──ruoyi-admin              //web服务入口Controller管理模块（业务表生成的Controller层代码可以放在这里的project包下面）
+│         └──project        //这里写你的项目业务代码Controller
+│         └──system         //系统自带Controller
+│         └──启动类          //springboot项目启动类（默认启动地址http://localhost:8080）
+├──ruoyi-common             //通用模块（通用工具类等）
+├──ruoyi-framework          //框架核心模块（包含redis，druid，Log等）
+├──ruoyi-generator          //代码生成器模块
+├──ruoyi-quartz             //定时任务模块
+├──ruoyi-system             //系统模块（javaBean,mapper,service等逻辑的模块，业务表生成的代码（除了controller）都可以放在这里的project包下面）
+│         └──project        //这里写你的项目业务相关代码（除了Controller之外）
+│         └──system         //系统自带功能
+├──ruoyi-ui                 //前端项目Vue工程（默认启动地址http://localhost:81）
+├──bin                      //服务器脚本文件夹
+├──doc                      //说明文档文件夹
+├──sql                      //sql脚本文件夹 
+│   └──create_db.sql        //生成数据库和用户
+│   └──create_business.sql  //用于存放你们自己业务表的sql
+│   └──quartz.sql           //用于存放定时任务sql
+│   └──ry_20201021.sql      //系统基本表自带的sql
+├──pom.xml                  //项目整体依赖
+~~~
 ## 演示图
 ![Image text](doc/doc-show.png)
 
