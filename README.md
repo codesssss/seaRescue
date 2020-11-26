@@ -275,7 +275,7 @@ public class SysDeptController extends BaseController{
     @Log(title = "部门", businessType = BusinessTypeEnum.DELETE)
 	@DeleteMapping("/{deptIds}")
     @ApiOperation("删除部门")
-    public Response remove(
+    public  Response<Integer> remove(
             @ApiParam(name = "deptIds", value = "部门ids参数", required = true)
             @PathVariable Long[] deptIds
     ){
