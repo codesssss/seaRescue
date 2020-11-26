@@ -726,11 +726,17 @@ export default {
 ![Image text](doc/release/linux-run.jpg)
 
 5.运行sudo sh install.sh后该目录下面会生成两个脚本，start.sh和stop.sh
+
 ![Image text](doc/release/create-shell.jpg)
+
  如果执行生成的start.sh和stop.sh在服务器上面存在两个“？？”的符号。需要自己文件手动重命名去掉。注册好后可以service junior-server start 启动项目！！！
+
 ![Image text](doc/release/create.jpg)
+
 6.关于运行install.sh时出现如下报错‘/r command not found’
+
 ![Image text](doc/release/run-error.jpg)
+
 shell脚本执行错误 $'\r':command not found
  存现这种错误是因为 编写的  shell脚本是在win下编写的，每行结尾是\r\n 的Unix 结果行是\n  所以在Linux下运行脚本 会任务\r 是一个字符，所以运行错误，需要把文件转换下
 方法一、
@@ -747,6 +753,7 @@ service junior-server restart 重启服务
 service junior-server status 查看服务状态
 ````
 此处以eyes-server举例，该脚手架中换成junior-server
+
 ![Image text](doc/release/eyes.jpg)
 
 8.关于增量部署，直接替换/opt/junior-server/lib下面的ruoyi-admin-3.20.jar，注意旧版本jar要删除，否则新jar找不到！！！
