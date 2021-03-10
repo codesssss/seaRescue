@@ -709,7 +709,7 @@ export default {
 
 ## 项目部署以及遇到的问题：（zip包全量部署，jar包增量更新部署）
 
-1.在项目的根目录pom进行打包（注意根目录root）,先clean,然后package
+1.在项目的根目录pom进行打包（注意根目录root）,先clean,然后package（如果package有问题，可以换成install命令）
 
 ![Image text](doc/release/maven.png)
 
