@@ -121,10 +121,10 @@ public class FileUploadUtils
         {
             desc.getParentFile().mkdirs();
         }
-        if (!desc.exists())
+        /*if (!desc.exists())
         {
             desc.createNewFile();
-        }
+        }*/
         return desc;
     }
 
