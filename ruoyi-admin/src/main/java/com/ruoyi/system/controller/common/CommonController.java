@@ -100,7 +100,8 @@ public class CommonController
         }
         catch (Exception e)
         {
-            return Response.error().setMsg(e.getMessage());
+            log.error("上传出错",e);
+            return Response.error().setMsg(e.toString());
         }
     }
 
