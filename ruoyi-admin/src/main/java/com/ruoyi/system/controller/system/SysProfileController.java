@@ -112,7 +112,7 @@ public class SysProfileController extends BaseController
     @Log(title = "用户头像", businessType = BusinessTypeEnum.UPDATE)
     @PostMapping("/avatar")
     @ApiOperation("头像上传")
-    public Response<String> avatar(@RequestParam("avatarfile") MultipartFile file) throws IOException
+    public Response<String> avatar(@RequestParam("avatarfile") MultipartFile file) throws Exception
     {
         if (!file.isEmpty())
         {
