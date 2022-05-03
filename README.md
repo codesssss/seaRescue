@@ -48,7 +48,7 @@
 原官方演示地址（仅供参考）：http://vue.ruoyi.vip  
 原官方文档地址（仅供参考）：http://doc.ruoyi.vip
 ~~~
-com.ruoyi 
+com.sxh 
 ├──ruoyi-admin              //web服务入口Controller管理模块（业务表生成的Controller层代码可以放在这里的project包下面）
 │    │    └──project                //这里写你的项目业务代码Controller
 │    │    └──system                 //系统自带Controller
@@ -58,9 +58,9 @@ com.ruoyi
 │    ├──remove.sh                //linux环境下移除部署运行的脚本,会删掉注册好的系统级服务，即service junior-server start ,service junior-server stop...(status,restart)等命令失效
 │    ├──start.bat                //windows 下的项目部署启动脚本
 ├──ruoyi-common             //通用模块（通用工具类等）
-├──ruoyi-framework          //框架核心模块（包含redis，druid，Log等）
-├──ruoyi-generator          //代码生成器模块
-├──ruoyi-quartz             //定时任务模块
+├──searescue-framework          //框架核心模块（包含redis，druid，Log等）
+├──searescue-generator          //代码生成器模块
+├──searescue-quartz             //定时任务模块
 ├──ruoyi-system             //系统模块（javaBean,mapper,service等逻辑的模块，业务表生成的代码（除了controller）都可以放在这里的project包下面）
 │         └──project                //这里写你的项目业务相关代码（除了Controller之外）
 │         └──system                 //系统自带功能
@@ -167,11 +167,11 @@ com.ruoyi
 1.后端代码生成示例（部分）
 
 ```java
-package com.ruoyi.system.controller;
+package com.sxh.system.controller;
 
 import java.util.List;
 import io.swagger.annotations.*;
-import com.ruoyi.common.core.domain.Response;
+import com.sxh.common.core.domain.Response;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -183,18 +183,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.enums.BusinessTypeEnum;
-import com.ruoyi.system.domain.SysDept;
-import com.ruoyi.system.service.ISysDeptService;
-import com.ruoyi.common.utils.poi.ExcelUtil;
-import com.ruoyi.common.core.page.ResponsePageInfo;
+import com.sxh.common.annotation.Log;
+import com.sxh.common.core.controller.BaseController;
+import com.sxh.common.enums.BusinessTypeEnum;
+import com.sxh.system.domain.SysDept;
+import com.sxh.system.service.ISysDeptService;
+import com.sxh.common.utils.poi.ExcelUtil;
+import com.sxh.common.core.page.ResponsePageInfo;
 
 /**
  * 【部门】Controller
  *
- * @author ruoyi
+ * @author sxh
  * @date 2020-11-22
  */
 @RestController
