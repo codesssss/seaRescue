@@ -1,0 +1,6 @@
+xarray==0.15.1
+numpy==1.18.1
+numba==0.48.0
+
+setuptools~=60.9.3
+netcdf4~=1.4.0
