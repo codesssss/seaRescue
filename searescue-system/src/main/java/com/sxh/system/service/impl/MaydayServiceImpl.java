@@ -90,12 +90,16 @@ public class MaydayServiceImpl extends ServiceImpl<IMaydayDao, MaydayEntity> imp
         return InfoList;
     }
 
+    /**
+     * 获取有效的求救
+     * @return
+     */
     public List<MaydayInfo> getValidMayday() {
         Map<String, Object> map = new HashMap<>();
         List<MaydayInfo> InfoList = new ArrayList<>();
         List<MaydayEntity> MaydayEntities = baseMapper.selectByMap(map);
         for (MaydayEntity entity : MaydayEntities) {
-            if(entity.getStatus().equals(1)){
+            if(entity.getStatus().equals(1)||entity.getStatus().equals(0)){
             MaydayInfo info = new MaydayInfo();
             BeanUtils.copyProperties(entity, info);
             ShipEntity shipEntity = new ShipEntity();
@@ -144,7 +148,7 @@ public class MaydayServiceImpl extends ServiceImpl<IMaydayDao, MaydayEntity> imp
         for (MaydayEntity maydayItem : maydayEntities) {
             for (ShipEntity shipItem : shipEntities) {
                 if (maydayItem.getStatus().equals(1) && shipItem.getId().equals(maydayItem.getResship())) {
-                    ShipEntity maydayShip = shipService.getBaseMapper().selectById(maydayItem.getId());
+                    ShipEntity maydayShip = shipService.getBaseMapper().selectById(maydayItem.getShipid());
                     res.add(new pathEntity(asList(shipItem.getLongitude(), shipItem.getLatitude()),
                             asList(maydayShip.getLongitude(), maydayShip.getLatitude())
                     ));

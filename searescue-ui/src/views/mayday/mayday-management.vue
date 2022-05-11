@@ -96,9 +96,6 @@
     <!-- 添加或修改参数配置对话框 -->
     <el-dialog :title="title" :visible.sync="open" append-to-body width="500px">
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item :required="true" label="求救" prop="name">
-          <el-input v-model="form.name" placeholder="请输入船只名称"/>
-        </el-form-item>
         <el-form-item :required="true" label="求救船只" prop="shipid">
           <el-select
             v-model="form.shipid"

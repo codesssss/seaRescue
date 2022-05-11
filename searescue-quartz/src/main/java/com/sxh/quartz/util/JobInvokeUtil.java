@@ -20,6 +20,7 @@ public class JobInvokeUtil
      *
      * @param sysJob 系统任务
      */
+
     public static void invokeMethod(SysJob sysJob) throws Exception
     {
         String invokeTarget = sysJob.getInvokeTarget();
@@ -110,7 +111,7 @@ public class JobInvokeUtil
         {
             return null;
         }
-        String[] methodParams = methodStr.split(",");
+        String[] methodParams = methodStr.split(",(?=([^\\\']*\\\'[^\\\']*\\\')*[^\\\']*$)");
         List<Object[]> classs = new LinkedList<>();
         for (int i = 0; i < methodParams.length; i++)
         {

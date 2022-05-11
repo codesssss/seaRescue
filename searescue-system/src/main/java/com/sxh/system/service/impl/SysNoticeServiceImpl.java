@@ -1,6 +1,10 @@
 package com.sxh.system.service.impl;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sxh.system.domain.SysNotice;
@@ -27,7 +31,7 @@ public class SysNoticeServiceImpl implements ISysNoticeService
     @Override
     public SysNotice selectNoticeById(Long noticeId)
     {
-        return noticeMapper.selectNoticeById(noticeId);
+        return noticeMapper.selectById(noticeId);
     }
 
     /**
@@ -39,7 +43,8 @@ public class SysNoticeServiceImpl implements ISysNoticeService
     @Override
     public List<SysNotice> selectNoticeList(SysNotice notice)
     {
-        return noticeMapper.selectNoticeList(notice);
+        Map map=new HashMap();
+        return noticeMapper.selectByMap(map);
     }
 
     /**
@@ -51,7 +56,7 @@ public class SysNoticeServiceImpl implements ISysNoticeService
     @Override
     public int insertNotice(SysNotice notice)
     {
-        return noticeMapper.insertNotice(notice);
+        return noticeMapper.insert(notice);
     }
 
     /**
@@ -63,7 +68,7 @@ public class SysNoticeServiceImpl implements ISysNoticeService
     @Override
     public int updateNotice(SysNotice notice)
     {
-        return noticeMapper.updateNotice(notice);
+        return noticeMapper.updateById(notice);
     }
 
     /**
@@ -75,7 +80,7 @@ public class SysNoticeServiceImpl implements ISysNoticeService
     @Override
     public int deleteNoticeById(Long noticeId)
     {
-        return noticeMapper.deleteNoticeById(noticeId);
+        return noticeMapper.deleteById(noticeId);
     }
 
     /**
@@ -87,6 +92,6 @@ public class SysNoticeServiceImpl implements ISysNoticeService
     @Override
     public int deleteNoticeByIds(Long[] noticeIds)
     {
-        return noticeMapper.deleteNoticeByIds(noticeIds);
+        return noticeMapper.deleteBatchIds(Arrays.asList(noticeIds));
     }
 }

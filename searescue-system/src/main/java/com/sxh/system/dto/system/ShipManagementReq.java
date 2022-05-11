@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  */
 @Data
 public class ShipManagementReq {
-    private Integer id;
+    private Long id;
 
     private BigDecimal longitude;
 

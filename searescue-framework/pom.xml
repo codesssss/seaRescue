@@ -77,6 +77,8 @@
             <artifactId>searescue-system</artifactId>
         </dependency>
 
+
+
     </dependencies>
 
 </project>
